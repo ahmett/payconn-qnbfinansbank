@@ -1,0 +1,24 @@
+language: php
+
+php:
+  - '7.4'
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+    - $HOME/.php-cs-fixer
+
+before_install:
+  - phpenv config-rm xdebug.ini
+
+install:
+  - composer install
+
+script:
+  - IFS=$'\n'
+  - CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB $TRAVIS_COMMIT_RANGE)
+  - if ! echo "${CHANGED_FILES}" | grep -qE "^(\\.php_cs(\\.dist)?|composer\\.lock)$"; then EXTRA_ARGS=$(printf -- '--path-mode=intersection\n--\n%s' "${CHANGED_FILES}"); else EXTRA_ARGS=''; fi
+  - composer cs:check -- ${EXTRA_ARGS}
+  - composer psalm:check
+  - composer phpstan:check
+  - composer test

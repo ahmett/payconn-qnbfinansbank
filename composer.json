@@ -1,0 +1,45 @@
+{
+  "name": "ahmett/payconn-qnbfinansbank",
+  "description": "QNB Finansbank payment processing library for PHP",
+  "keywords": ["QNB Finansbank", "Finansbank", "Sanal Pos", "Payment Processing", "PayFor"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ahmet Kaba",
+      "email": "ahmetkaba@aol.com"
+    }
+  ],
+  "type": "library",
+  "require": {
+    "php": "^7.4.0",
+    "guzzlehttp/guzzle": "^6.5",
+    "symfony/http-foundation": "^4.4|^5.0",
+    "payconn/common": "~1.3.9",
+    "ext-simplexml": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Payconn\\QNBFinansbank\\": "src/QNBFinansbank"
+    },
+    "classmap": [
+      "src/QNBFinansbank.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Payconn\\QNBFinansbank\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9",
+    "vimeo/psalm": "^3.11",
+    "phpstan/phpstan": "^0.12.19",
+    "friendsofphp/php-cs-fixer": "^2.16"
+  },
+  "scripts": {
+    "test": "phpunit --stop-on-failure --stop-on-error",
+    "cs:check": "php-cs-fixer fix --verbose --dry-run --stop-on-violation --using-cache=no",
+    "psalm:check": "psalm",
+    "phpstan:check": "phpstan analyse"
+  }
+}
