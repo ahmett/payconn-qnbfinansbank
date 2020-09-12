@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 class PurchaseTest extends TestCase
 {
+    /**
+     * @covers \Payconn\QNBFinansbank\Model\Purchase
+     */
     public function testFailure(): void
     {
         $response = new Response(200, [], '<?xml version="1.0" encoding="utf-8"?>
@@ -37,6 +40,9 @@ class PurchaseTest extends TestCase
         $this->assertFalse($response->isSuccessful());
     }
 
+    /**
+     * @covers \Payconn\QNBFinansbank\Model\Purchase
+     */
     public function testSuccessful(): void
     {
         $response = new Response(200, [], '<?xml version="1.0" encoding="utf-8"?>

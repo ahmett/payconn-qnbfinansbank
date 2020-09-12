@@ -37,8 +37,8 @@
     "friendsofphp/php-cs-fixer": "^2.16"
   },
   "scripts": {
-    "test": "phpunit --stop-on-failure --stop-on-error",
-    "cs:check": "php-cs-fixer fix --verbose --dry-run --stop-on-violation --using-cache=no",
+    "test": "phpunit --stop-on-failure --stop-on-error --do-not-cache-result",
+    "cs:check": "php-cs-fixer fix --config=.php_cs --verbose --dry-run --stop-on-violation --using-cache=no",
     "psalm:check": "psalm",
     "phpstan:check": "phpstan analyse"
   }

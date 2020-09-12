@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 class AuthorizeTest extends TestCase
 {
+    /**
+     * @covers \Payconn\QNBFinansbank\Model\Authorize
+     */
     public function testSuccessful(): void
     {
         $responseBody = 'REDIRECT_FORM';

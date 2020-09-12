@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 class CancelTest extends TestCase
 {
+    /**
+     * @covers \Payconn\QNBFinansbank\Model\Cancel
+     */
     public function testFailure(): void
     {
         $response = new Response(200, [], '<?xml version="1.0" encoding="utf-8"?>
@@ -34,6 +37,9 @@ class CancelTest extends TestCase
         $this->assertFalse($response->isSuccessful());
     }
 
+    /**
+     * @covers \Payconn\QNBFinansbank\Model\Cancel
+     */
     public function testSuccessful(): void
     {
         $response = new Response(200, [], '<?xml version="1.0" encoding="utf-8"?>
