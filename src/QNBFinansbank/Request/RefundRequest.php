@@ -32,6 +32,9 @@ class RefundRequest extends AbstractRequest
         /** @var HttpClient $httpClient */
         $httpClient = $this->getHttpClient();
         $response = $httpClient->request('POST', $model->getBaseUrl(), [
+            'headers' => [
+                'Content-Type' => 'text/xml; charset=UTF-8',
+            ],
             'body' => $body->asXML(),
         ]);
 
